@@ -5,10 +5,12 @@
 #include <fstream>
 using namespace std;
 template<typename T>
-class Vocabulary
+	///Класс, реализующий дерево, в котором храниться словарь
+class Vocabulary 
 {
 private:
 	template<typename T>
+		///Класс, реализующий узел дерева
 	class Node
 	{
 	public:
@@ -26,16 +28,27 @@ private:
 	};
 public:
 
+	///Семя дерева
 	Node<T>* head;
+	///Количество узлов дерева
 	int size;
+	///Конструктор, устанавливающий начальное состояние дерева
 	Vocabulary();
+	///Функция, принимающая и заносящая в дерево значения
 	void push_back(T Word_E, T Word_R);
+	///Функция, выводящая данные по элементу
 	void show_data(T Word_E);
+	///Функция, меняющая данные по элементу
 	void change_data(T Word_E, T Word_R);
+	///Функция, удаляющая элемент
 	void delete_element(T Word_E);
+	///Функция, рекурсивно выводящая все элементы дерева
 	void Show_Tree(Node<T>* Vocabulary);
+	///Функция, рекурсивно записывающая дерево в файл
 	void Fout(Node<T>* current, ofstream& fout);
+	///Функция, рекурсивно добавляющая отдельную ветвь в дерево
 	void Paste(Node<T>* Vocabulary);
+	///Функция, возвращающая текущее количество узлов дерева.
 	int GetSize()
 	{
 		return size;
@@ -162,7 +175,7 @@ void Vocabulary<T>::change_data(T Word_E, T Word_R)
 }
 
 template<typename T>
-void Vocabulary<T>::Paste(Node<T>* current)//Обратный
+void Vocabulary<T>::Paste(Node<T>* current)
 {
 	if (current)
 	{
@@ -312,7 +325,7 @@ void Vocabulary<T>::delete_element(T Word_E)
 
 
 template<typename T>
-void Vocabulary<T>::Show_Tree(Node<T>* current)//Симметричный
+void Vocabulary<T>::Show_Tree(Node<T>* current)
 {
 	if (current)
 	{

@@ -7,6 +7,7 @@ using namespace std;
 
 
 
+///Функция для вывода меню программы
 void Menu()
 {
 	cout << "\tМеню\n"
@@ -20,6 +21,7 @@ void Menu()
 		<< "(0)Выйти из программы\n";
 }
 
+///Функция main
 int main()
 {
 	setlocale(LC_ALL, "Russian");

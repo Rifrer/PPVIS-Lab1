@@ -235,74 +235,80 @@ void Vocabulary<T>::delete_element(T Word_E)
 					break;
 				}
 			}
-			if (Word_E == current->pLeft->Word_E)
+			if (current->pLeft != nullptr)
 			{
-				if (current->pLeft->pLeft == nullptr && current->pLeft->pRight == nullptr)
+				if (Word_E == current->pLeft->Word_E)
 				{
-					delete (current->pLeft);
-					current->pLeft = nullptr;
-					size--;
-					break;
-				}
-				if (current->pLeft->pLeft == nullptr && current->pLeft->pRight != nullptr)
-				{
-					save = current->pLeft->pRight;
-					delete (current->pLeft);
-					current = save;
-					size--;
-					break;
-				}
-				if (current->pLeft->pRight == nullptr && current->pLeft->pLeft != nullptr)
-				{
-					save = current->pLeft->pLeft;
-					delete (current->pLeft);
-					current = save;
-					size--;
-					break;
-				}
-				if (current->pLeft->pRight != nullptr && current->pLeft->pLeft != nullptr)
-				{
-					save = current->pLeft->pLeft;
-					savetopush = current->pLeft->pRight;
-					delete (current->pLeft);
-					size--;
-					Paste(savetopush);
-					break;
+					if (current->pLeft->pLeft == nullptr && current->pLeft->pRight == nullptr)
+					{
+						delete (current->pLeft);
+						current->pLeft = nullptr;
+						size--;
+						break;
+					}
+					if (current->pLeft->pLeft == nullptr && current->pLeft->pRight != nullptr)
+					{
+						save = current->pLeft->pRight;
+						delete (current->pLeft);
+						current->pLeft = save;
+						size--;
+						break;
+					}
+					if (current->pLeft->pRight == nullptr && current->pLeft->pLeft != nullptr)
+					{
+						save = current->pLeft->pLeft;
+						delete (current->pLeft);
+						current->pLeft = save;
+						size--;
+						break;
+					}
+					if (current->pLeft->pRight != nullptr && current->pLeft->pLeft != nullptr)
+					{
+						save = current->pLeft->pLeft;
+						savetopush = current->pLeft->pRight;
+						delete (current->pLeft);
+						size--;
+						Paste(savetopush);
+						break;
+					}
 				}
 			}
-			if (Word_E == current->pRight->Word_E)
+			if (current->pRight != nullptr)
 			{
-				if (current->pRight->pLeft == nullptr && current->pRight->pRight == nullptr)
+				if (Word_E == current->pRight->Word_E)
 				{
-					delete (current->pRight);
-					current->pRight = nullptr;
-					size--;
-					break;
-				}
-				if (current->pRight->pLeft == nullptr && current->pRight->pRight != nullptr)
-				{
-					save = current->pRight->pRight;
-					delete (current->pRight);
-					current = save;
-					size--;
-					break;
-				}
-				if (current->pRight->pRight == nullptr && current->pRight->pLeft != nullptr)
-				{
-					save = current->pRight->pLeft;
-					delete (current->pRight);
-					current = save;
-					size--;
-					break;
-				}
-				if (current->pRight->pRight != nullptr && current->pRight->pLeft != nullptr)
-				{
-					save = current->pRight->pLeft;
-					savetopush = current->pRight->pRight;
-					delete (current->pRight);
-					size--;
-					Paste(savetopush);
-					break;
+					if (current->pRight->pLeft == nullptr && current->pRight->pRight == nullptr)
+					{
+						delete (current->pRight);
+						current->pRight = nullptr;
+						size--;
+						break;
+					}
+					if (current->pRight->pLeft == nullptr && current->pRight->pRight != nullptr)
+					{
+						save = current->pRight->pRight;
+						delete (current->pRight);
+						current->pRight = save;
+						size--;
+						break;
+					}
+					if (current->pRight->pRight == nullptr && current->pRight->pLeft != nullptr)
+					{
+						save = current->pRight->pLeft;
+						delete (current->pRight);
+						current->pRight = save;
+						size--;
+						break;
+					}
+					if (current->pRight->pRight != nullptr && current->pRight->pLeft != nullptr)
+					{
+						save = current->pRight->pLeft;
+						savetopush = current->pRight->pRight;
+						delete (current->pRight);
+						size--;
+						Paste(savetopush);
+						break;
+					}
 				}
 			}
 			if (current->pLeft == nullptr && current->pRight == nullptr)
